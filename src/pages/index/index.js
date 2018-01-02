@@ -21,7 +21,7 @@ let app = new Vue({
     bannerLists: null
   },
   created() {
-    this.getLists();
+    this.getLists()
     this.getBanner()
   },
   methods: {
