@@ -15,6 +15,9 @@
 </template>
 
 <script>
+import qs from 'qs';
+let {index} = qs.parse(location.search.substr(1))
+
 let navConfig = [
     {
         name: '有赞',
@@ -41,7 +44,7 @@ export default {
     data() {
         return {
             navConfig,
-            curIndex: 0
+            curIndex: parseInt(index) || 0
         };
     },
     methods: {
