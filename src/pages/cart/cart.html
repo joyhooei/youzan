@@ -17,7 +17,6 @@
     [v-cloak] {
       display: none;
     }
-
   </style>
 </head>
 
@@ -42,10 +41,11 @@
               <!---->
               <div>
                 <ul class="js-list block block-list block-list-cart border-0">
-                  <li class="block-item block-item-cart editing" v-for="(good,goodIndex) in shop.goodsList">
+                  <li class="block-item block-item-cart" v-for="(good,goodIndex) in shop.goodsList"
+                  >
                     <div>
                       <div class="check-container">
-                        <span class="check"></span>
+                        <span class="check" :class="{checked: good.checked}"></span>
                       </div>
                       <div class="name-card clearfix">
                         <a :href="'goods.html?id='+good.id" class="thumb js-goods-link">

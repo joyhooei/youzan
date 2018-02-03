@@ -11,7 +11,7 @@ import qs from 'qs';
 new Vue({
   el: '.container',
   data: {
-    lists: null
+    lists: null,
   },
   computed: {},
   created() {
@@ -20,7 +20,13 @@ new Vue({
   methods: {
     getList() {
       axios.post(url.cartLists).then(res => {
-        this.lists = res.data.cartList;
+        let lists = res.data.cartList;
+        lists.forEach(shop => {        
+          shop.goodsList.forEach(good => {
+            good.checked = true;
+          })
+        });
+        this.lists = lists;
       });
     }
   },
