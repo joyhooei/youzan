@@ -155,14 +155,16 @@ new Vue({
         })
         .then(res => {
           let arr = [];
-          this.editingShop.goodsList.forEach(good => {
-            let index = this.removeLists.findIndex(item => {
-              return item.id === good.id;
+          if (this.editingShop) {
+            this.editingShop.goodsList.forEach(good => {
+              let index = this.removeLists.findIndex(item => {
+                return item.id === good.id;
+              });
+              if (index === -1) {
+                arr.push(good);
+              }
             });
-            if (index === -1) {
-              arr.push(good);
-            }
-          });
+          }
           if (arr.length) {
             this.editingShop.goodsList = arr;
           } else {
