@@ -18,7 +18,10 @@ let app = new Vue({
     pageSize: 6,
     loading: false, //可以加载
     allLoaded: false,
-    bannerLists: null
+    bannerLists: null,
+    obj: {
+      age: 20
+    }
   },
   created() {
     this.getLists()
@@ -50,6 +53,9 @@ let app = new Vue({
         axios.get(url.banner).then(res => {
             this.bannerLists = res.data.lists
         })
+    },
+    changeAge(age) {
+      this.obj.age = age;
     }
   },
   components: {
